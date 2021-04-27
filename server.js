@@ -559,4 +559,4 @@ client.on("ready", () => {
     }; setInterval(YousamPower, 2000)
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login('ODE4MDc1NTI3NTcxMTc3NDky.YESyNA.sYG585An5Xhv1O7sRLlwcwmDT50');
