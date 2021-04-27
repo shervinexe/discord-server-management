@@ -1,33 +1,22 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
-  "name": "hello-express",
-  "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "name": "dng",
+  "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "discord-auditlog": "^2.4.0",
-    "discord.js": "^12.5.3",
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.1",
-    "url": "^0.11.0"
-  },
-  "engines": {
-    "node": "12.x"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "type": "git",
+    "url": "git+https://github.com/shervinpro/dng.git"
   },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ],
-  "devDependencies": {},
-  "author": ""
+  "author": "created by shervinpro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shervinpro/dng/issues"
+  },
+  "homepage": "https://github.com/shervinpro/dng#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
 }
