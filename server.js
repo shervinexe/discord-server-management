@@ -429,7 +429,11 @@ client.on('message', message =>{
 }
 })
 
-
+client.on('message', message => {
+  if (message.content === 'd!ping') {  
+    message.channel.send(`🏓Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`);
+  }
+});
 
 client.on("message", message => {
     const args = message.content.trim().split(/ +/g);
