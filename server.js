@@ -430,11 +430,15 @@ client.on('message', message =>{
 })
 
 client.on('message', message => {
-  if (message.content === 'd!ping') {  
-    message.channel.send(`🏓Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`);
+  if (message.content === `d!ping`) {
+      const embed = new Discord.MessageEmbed()
+        .setColor("FF6400")
+        .setAuthor(`ping : ${Math.round(message.client.ws.ping)}`)
+        
+          message.channel.send(embed);
   }
-});
-
+      });
+      
 client.on("message", message => {
     const args = message.content.trim().split(/ +/g);
     const command = args.shift().toLowerCase();
