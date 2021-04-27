@@ -493,6 +493,16 @@ msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
   }
 })
 
+client.on('message', message => {
+  if (message.content === `d!ping`) {
+      const embed = new Discord.MessageEmbed()
+        .setColor("FF6400")
+        .setAuthor(`ping : ${Math.round(message.client.ws.ping)}`)
+        
+          message.channel.send(embed);
+  }
+      });
+
 client.on("ready", () => {
   function YousamPower() {
       let targetguild = client.guilds.cache.get("817004935660175371")
