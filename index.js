@@ -21,16 +21,20 @@ client.on('ready', async () => {
     connection.voice.setSelfDeaf(false)
   });
 
+
+
+
 client.on('guildMemberAdd', (member) => {
     const channelId = '817332955264319508';
     const channel = member.guild.channels.cache.get(channelId)
     channel.send(`salam <@${member.id}>be danger khosh amadi.`)
+  
+                      let ed = new Discord.MessageEmbed()
+        .setColor("#1b00ff")
+        .setTitle("welcomer system activeted =>")       
+  
+        client.channels.cache.get("836481859423698944").send(ed)
 })
-
-//Set the prefix and token of the bot.
-const settings = {
-  prefix: '/',
-}
  
 //Whenever someone types a message this gets activated.
 //(If you use 'await' in your functions make sure you put async here)
@@ -127,8 +131,10 @@ client.on("message", message => {
         .setColor("#ff001c")
         .setTitle("announce")
         .setDescription(saymessage)
-       
-  
+                                let eda = new Discord.MessageEmbed()
+        .setColor("#ff7b00")
+        .setTitle("announce actived =>")
+        client.channels.cache.get("836481859423698944").send(eda)
         client.channels.cache.get("818043234960932894").send("||@everyone ||",ed)
         message.delete()
       }
@@ -152,6 +158,11 @@ client.on("message", message => {
         return message.channel.send(`Member Morede Nazar Dar Voice Join Nistesh ❌`);
         message.mentions.members.first().voice.kick();
   message.channel.send("member mored nazar az voice kick shod✔")
+                
+                                        let eda = new Discord.MessageEmbed()
+        .setColor("#3b8335")
+        .setTitle("voice kick actived =>")
+        client.channels.cache.get("836481859423698944").send(eda)
               }
       }
 })
@@ -168,6 +179,11 @@ client.on("message", (message) => {
       }).catch(() => {
           
           message.channel.send("Access Denied");
+                                let eda = new Discord.MessageEmbed()
+        .setColor("#00ffc7")
+        .setTitle("one member baned =>")
+        .setDescription("member baned >")
+        client.channels.cache.get("836481859423698944").send(eda)
       });
   }
 });
@@ -224,26 +240,182 @@ client.on("message", message => {
      }
 })
 
-
-
 client.on("message", message => {
     const args = message.content.trim().split(/ +/g);
     const command = args.shift().toLowerCase();
   const saymessage = args.join(' ')
     if(command === "d!bupdate"){
       if(message.member.hasPermission('ADMINISTRATOR')){
-        let ed = new Discord.MessageEmbed()
-        .setColor("#00f1ff")
-        .setTitle("bot Update")
-        .setDescription(saymessage)
-       
-  
-        client.channels.cache.get("827820721073160192").send(ed)
+
         message.delete()
       }
 
      }
 })
+
+client.on("message", message => {
+    const args = message.content.trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+  const text = args.join(' ')
+    if(command === "d!dm"){
+      if(message.member.hasPermission('ADMINISTRATOR')){
+        
+         message.mentions.members.first().send(text)
+        message.delete()
+      }
+
+     }
+})
+
+client.on("message", message => {
+    const args = message.content.trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+  const text = args.join(' ')
+    if(command === "d!channelcreate"){
+      if(message.member.hasPermission('ADMINISTRATOR')){
+      message.guild.channels.create(text, {type: "text"})
+        message.delete()
+        
+                let ed = new Discord.MessageEmbed()
+        .setColor("#00f1ff")
+        .setTitle("channel created with command =>")
+        .setDescription(text)
+       
+  
+        client.channels.cache.get("836481859423698944").send(ed)}
+    }
+})
+
+
+
+
+
+client.on('message', message =>{
+//React
+  const reactEmojiTick = message.guild.emojis.cache.find(tick => tick.name === '✅')
+
+//Code
+  if (message.content.toLocaleLowerCase().startsWith('d!rankup maneger')){
+    
+                    let ed = new Discord.MessageEmbed()
+        .setColor("#1b00ff")
+        .setTitle("updated user role to maneger =>")       
+  
+        client.channels.cache.get("836481859423698944").send(ed)
+
+    if (!message.member.hasPermission('MANAGE_ROLES'))return message.channel.send('You dont have permission to `Mute`');
+
+    let MentionUser = message.mentions.members.first()
+
+    if (!MentionUser) 
+    return message.channel.send ('>>> Please mention someone to `Mute` him');
+
+    if (MentionUser){
+
+      const muteRole = message.guild.roles.cache.find(role => role.name === '|💎|𝙈𝙖𝙣𝙖𝙜𝙚𝙧|💎|')
+
+      if (muteRole){
+        
+        MentionUser.roles.add(muteRole)
+        message.channel.send(new Discord.MessageEmbed()
+        .setTitle (`${message.member.guild.name} | Mods`)
+        .setColor ('#47ffb3')
+        .addFields (
+          {name: ':negative_squared_cross_mark: | User :', value: '<@' + MentionUser.user.id + '>', inline: true},
+          {name: '???? | Server :', value: '`' + MentionUser.guild.name + '`',inline: true},
+          {name: '???? | Author :', value: '<@' + message.member.user.id + '>', inline: true}
+        )).then(message =>{
+          message.react(reactEmojiTick)
+          message.delete({timeout: 20000})
+       
+        
+        })
+        message.delete({timeout: 30000})
+      }
+
+      if (!muteRole){
+
+        message.member.send('Muted role not found | Please use command again (I created `Mute` role)')
+        if (message.guild.me.hasPermission('MANAGE_ROLES')){
+           return message.guild.roles.create({
+            data: {
+              name: 'Muted',
+              color: 'RED',
+              permissions: 'VIEW_CHANNEL'
+            }
+          })
+        }
+
+        if (!message.guild.me.hasPermission('MANAGE_ROLES')) 
+        return message.channel.send('somethings is wrong please check my permissions') 
+      }
+      
+  }
+}
+})
+
+client.on('message', message =>{
+//React
+  const reactEmojiTick = message.guild.emojis.cache.find(tick => tick.name === '✅')
+
+//Code
+  if (message.content.toLocaleLowerCase().startsWith('mute')){
+    
+    
+
+    if (!message.member.hasPermission('MANAGE_ROLES'))return message.channel.send('You dont have permission to `Mute`');
+
+    let MentionUser = message.mentions.members.first()
+
+    if (!MentionUser) 
+    return message.channel.send ('>>> Please mention someone to `Mute` him');
+
+    if (MentionUser){
+
+      const muteRole = message.guild.roles.cache.find(role => role.name === 'Mute')
+
+      if (muteRole){
+        
+        MentionUser.roles.add(muteRole)
+        message.channel.send(new Discord.MessageEmbed()
+        .setTitle (`${message.member.guild.name} | Mods`)
+        .setColor ('#47ffb3')
+        .addFields (
+          {name: '❎ | User :', value: '<@' + MentionUser.user.id + '>', inline: true},
+          {name: '???? | Server :', value: '`' + MentionUser.guild.name + '`',inline: true},
+          {name: '???? | Author :', value: '<@' + message.member.user.id + '>', inline: true}
+        )).then(message =>{
+          message.react(reactEmojiTick)
+          message.delete({timeout: 20000})
+       
+        
+        })
+        message.delete({timeout: 30000})
+      }
+
+      if (!muteRole){
+
+        message.member.send('Muted role not found | Please use command again (I created `Mute` role)')
+        if (message.guild.me.hasPermission('MANAGE_ROLES')){
+           return message.guild.roles.create({
+            data: {
+              name: 'Muted',
+              color: 'RED',
+              permissions: 'VIEW_CHANNEL'
+            }
+          })
+        }
+
+        if (!message.guild.me.hasPermission('MANAGE_ROLES')) 
+        return message.channel.send('somethings is wrong please check my permissions') 
+        
+        
+      }
+      
+  }
+}
+})
+
 
 
 client.on("message", message => {
@@ -256,19 +428,28 @@ client.on("message", message => {
         .setColor("#01aa00")
         .setTitle("نظر سنجی")
         .setDescription(saymessage)
+               client.channels.cache.get("835061528796725298").send(ed)
+                  let edlog = new Discord.MessageEmbed()
+        .setColor("#ffffff")
+        .setTitle("nazarsangisystem activeted =>")
+        .setDescription(saymessage)
        
   
-        client.channels.cache.get("835061528796725298").send(ed)
+        client.channels.cache.get("836481859423698944").send(edlog)}
         message.delete()
-      }
-
-     }
+    }
 })
 
 client.on("message", message => {
   if(message.channel.id === "835061528796725298"){
     message.react('✅')
     message.react('❌')
+                      let edlog = new Discord.MessageEmbed()
+        .setColor("#ff001c")
+        .setTitle("auto react activeted =>")
+       
+  
+        client.channels.cache.get("836481859423698944").send(edlog)
    }
 })
 
@@ -276,6 +457,12 @@ client.on("message", message => {
   if(message.channel.id === "827608618445701230"){
     message.react('✅')
     message.react('❌')
+                          let edlog = new Discord.MessageEmbed()
+        .setColor("#ff001c")
+        .setTitle("auto react activeted =>")
+       
+  
+        client.channels.cache.get("836481859423698944").send(edlog)
    }
 })
 
@@ -299,6 +486,12 @@ client.on("message", message => {
 	.setTimestamp()
     .setFooter(`Requested by ${message.author.username}`);
     message.channel.send(vc_alive);
+                                let edlog = new Discord.MessageEmbed()
+        .setColor("#ffff00")
+        .setTitle("requesting for voice active command =>")
+       
+  
+        client.channels.cache.get("836481859423698944").send(edlog)
     
     }                                
  });
@@ -307,6 +500,19 @@ client.on("message", msg => {
 
     if (msg.content.startsWith("d!restart")) {
       msg.react('✅').then(() => msg.react('❎')); 
+                                      let edlog = new Discord.MessageEmbed()
+        .setColor("#ffff00")
+        .setTitle("restart request activated =>")
+       
+  
+        client.channels.cache.get("836481859423698944").send(edlog)
+      
+                                            let eedlog = new Discord.MessageEmbed()
+        .setColor("#ffff00")
+        .setTitle("restart complated =>")
+       
+  
+        client.channels.cache.get("836481859423698944").send(eedlog)
 
 const filter = (reaction, user) => {
 	return ['✅', '❎'].includes(reaction.emoji.name) && user.id === msg.author.id;
@@ -326,6 +532,7 @@ msg.awaitReactions(filter, { max: 1, time: 60000, errors: ['time'] })
 	})
 	.catch(collected => {
 		msg.reply('you reacted with neither a thumbs up, nor a thumbs down.');
+
 })
     }
 })
