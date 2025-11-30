@@ -4,16 +4,16 @@ const client = new Discord.Client();
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   function chNickname() {
-    const targetguild = client.guilds.cache.get("817004935660175371")
+    const targetguild = client.guilds.cache.get("id")
     const me = targetguild.members.cache.get(client.user.id)
-    let name = ["D", "D a", "D a n", "D a n g", "D a n g e", "D a n g e r"]
+    let name = ["1", 2", "3", "4", "5", "6"]
     for (let i = 0; i < name.length; i++)
         me.setNickname(name[i])
 }; setInterval(chNickname, 10000)
 });
 
 client.on('ready', async () => {
-  const chid = "818086744233607198"
+  const chid = "id"
   const ch = client.channels.cache.get(chid)
   const connection = await ch.join();
   connection.voice.setSelfMute(true);
@@ -21,7 +21,7 @@ client.on('ready', async () => {
 });
 
 client.on('guildMemberAdd', (member) => {
-  const channelId = '817332955264319508';
+  const channelId = 'id';
   const channel = member.guild.channels.cache.get(channelId)
   channel.send(`salam <@${member.id}>be danger khosh amadi.`)
 
@@ -29,7 +29,7 @@ client.on('guildMemberAdd', (member) => {
       .setColor("#1b00ff")
       .setTitle("welcomer system activeted =>")       
 
-      client.channels.cache.get("836481859423698944").send(ed)
+      client.channels.cache.get("id").send(ed)
 })
 
 client.on("message", message => {
@@ -96,8 +96,8 @@ const saymessage = args.join(' ')
                               let eda = new Discord.MessageEmbed()
       .setColor("#ff7b00")
       .setTitle("announce actived =>")
-      client.channels.cache.get("836481859423698944").send(eda)
-      client.channels.cache.get("818043234960932894").send("||@everyone ||",ed)
+      client.channels.cache.get("id").send(eda)
+      client.channels.cache.get("id").send("||@everyone ||",ed)
       message.delete()
     }
 
@@ -111,7 +111,7 @@ const command = args.shift().toLowerCase();
           if(message.member.hasPermission('ADMINISTRATOR')){
     if (!message.mentions.members.first())
     return message.channel.send(
-      `Lotfan Member Ke Mikhahid Az Voice Kik Konid Ra Mention Konid `
+      `Lotfan Member Ke Mikhahid Az Voice Kick Konid Ra Mention Konid `
     );
 
   let { channel } = message.mentions.members.first().voice;
@@ -124,7 +124,7 @@ message.channel.send("member mored nazar az voice kick shod✔")
                                     let eda = new Discord.MessageEmbed()
     .setColor("#3b8335")
     .setTitle("voice kick actived =>")
-    client.channels.cache.get("836481859423698944").send(eda)
+    client.channels.cache.get("id").send(eda)
           }
   }
 })
@@ -145,7 +145,7 @@ client.on("message", (message) => {
         .setColor("#00ffc7")
         .setTitle("one member baned =>")
         .setDescription("member baned >")
-        client.channels.cache.get("836481859423698944").send(eda)
+        client.channels.cache.get("id").send(eda)
       });
   }
 });
@@ -160,7 +160,7 @@ const saymessage = args.join(' ')
       .setColor("#ffff00")
       .setTitle("warn")
       .setDescription(saymessage)
-      client.channels.cache.get("827945504377274448").send(ed)
+      client.channels.cache.get("id").send(ed)
       message.delete()
     };
   };
@@ -178,7 +178,7 @@ const saymessage = args.join(' ')
       .setDescription(saymessage)
      
 
-      client.channels.cache.get("827863498284990474").send(ed)
+      client.channels.cache.get("id").send(ed)
       message.delete()
     }
 })
@@ -195,7 +195,7 @@ const saymessage = args.join(' ')
       .setDescription(saymessage)
      
 
-      client.channels.cache.get("827820462272675850").send(ed)
+      client.channels.cache.get("id").send(ed)
       message.delete()
     }
 
@@ -244,7 +244,7 @@ const text = args.join(' ')
       .setDescription(text)
      
 
-      client.channels.cache.get("836481859423698944").send(ed)}
+      client.channels.cache.get("id").send(ed)}
   }
 })
 
@@ -384,7 +384,7 @@ client.on("message", message => {
         .setColor("#01aa00")
         .setTitle("نظر سنجی")
         .setDescription(saymessage)
-               client.channels.cache.get("835061528796725298").send(ed)
+               client.channels.cache.get("id").send(ed)
                   let edlog = new Discord.MessageEmbed()
         .setColor("#ffffff")
         .setTitle("nazarsangisystem activeted =>")
@@ -397,7 +397,7 @@ client.on("message", message => {
 })
 
 client.on("message", message => {
-  if(message.channel.id === "835061528796725298"){
+  if(message.channel.id === "id"){
     message.react('✅')
     message.react('❌')
                       let edlog = new Discord.MessageEmbed()
@@ -405,12 +405,12 @@ client.on("message", message => {
         .setTitle("auto react activeted =>")
        
   
-        client.channels.cache.get("836481859423698944").send(edlog)
+        client.channels.cache.get("id").send(edlog)
    }
 })
 
 client.on("message", message => {
-  if(message.channel.id === "827608618445701230"){
+  if(message.channel.id === "id"){
     message.react('✅')
     message.react('❌')
                           let edlog = new Discord.MessageEmbed()
@@ -418,7 +418,7 @@ client.on("message", message => {
         .setTitle("auto react activeted =>")
        
   
-        client.channels.cache.get("836481859423698944").send(edlog)
+        client.channels.cache.get("id").send(edlog)
    }
 })
 
@@ -447,7 +447,7 @@ client.on("message", message => {
       .setTitle("requesting for voice active command =>")
      
 
-      client.channels.cache.get("836481859423698944").send(edlog)
+      client.channels.cache.get("id").send(edlog)
   
   }                                
 });
@@ -461,14 +461,14 @@ client.on("message", msg => {
       .setTitle("restart request activated =>")
      
 
-      client.channels.cache.get("836481859423698944").send(edlog)
+      client.channels.cache.get("id").send(edlog)
     
                                           let eedlog = new Discord.MessageEmbed()
       .setColor("#ffff00")
       .setTitle("restart complated =>")
      
 
-      client.channels.cache.get("836481859423698944").send(eedlog)
+      client.channels.cache.get("id").send(eedlog)
 
 const filter = (reaction, user) => {
 return ['✅', '❎'].includes(reaction.emoji.name) && user.id === msg.author.id;
@@ -505,11 +505,11 @@ client.on('message', message => {
 
 client.on("ready", () => {
   function YousamPower() {
-      let targetguild = client.guilds.cache.get("817004935660175371")
+      let targetguild = client.guilds.cache.get("id")
     let hungry = [`${targetguild.memberCount} members`, "Danger Family"]
     let Power = Math.floor(Math.random() * hungry.length);
     client.user.setActivity(hungry[Power], {type: "STREAMING", url: "https://www.twitch.tv/dangerfamily"});
   }; setInterval(YousamPower, 2000)
 });
 
-client.login('ODE4MDc1NTI3NTcxMTc3NDky.YESyNA.sYG585An5Xhv1O7sRLlwcwmDT50');
+client.login('application token');
